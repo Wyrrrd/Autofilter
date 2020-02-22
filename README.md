@@ -1,8 +1,8 @@
 # Autofilter
-![mod thumbnail](https://raw.githubusercontent.com/Wyrrrd/Autofilter/master/thumbnail.png)
+<img src="https://raw.githubusercontent.com/Wyrrrd/Autofilter/master/thumbnail.png" width="128" height="128">
 
 Description:
-- When you place a filter inserter, it reads either the inventory contents or inventory filters on the pickup side and sets it's filter to those items.
+- When you place a filter inserter, it reads either the inventory contents or inventory filters on the pickup side and sets its filter to those items.
 - Fills the inserter's filter only until it is full (of course).
 - The mode can be changed or disabled in player mod settings on the fly as needed.
 - Should work with most modded filter inserters.

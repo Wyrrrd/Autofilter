@@ -3,7 +3,7 @@
 --functions definitions
 local function get_items_by_content(inserter,inventory)
 	local items = {}
-	for item,count in pairs(inventory.get_contents()) do
+	for item,_ in pairs(inventory.get_contents()) do
 		if #items < inserter.filter_slot_count then
 			items[#items+1] = item
 		end
