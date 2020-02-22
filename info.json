@@ -1,6 +1,6 @@
 {
 	"name": "Autofilter",
-	"version": "0.18.0",
+	"version": "0.18.1",
 	"title": "Autofilter",
 	"author": "Wyrrrd",
 	"dependencies": ["base >= 0.18.0"],
