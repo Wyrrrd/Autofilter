@@ -3,6 +3,9 @@ Version: 0.18.2
 Date: 22. 2. 2020
   Changes:
     - Matched changelog file format to what Factorio expects
+
+  Info:
+    - Also downgraded to Factorio 0.17, see below
 ---------------------------------------------------------------------------------------------------
 Version: 0.18.1
 Date: 22. 2. 2020
@@ -14,4 +17,9 @@ Date: 22. 2. 2020
   Features:
     - Added automatic setting of filter on inserter placement
     - Added player mod setting to control mod behaviour
+---------------------------------------------------------------------------------------------------
+Version: 0.17.0
+Date: 22. 2. 2020
+  Info:
+    - Retroactive downgrade
 ---------------------------------------------------------------------------------------------------
