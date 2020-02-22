@@ -1,12 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.18.2
+Date: 22. 2. 2020
+  Changes:
+    - Matched changelog file format to what Factorio expects
+---------------------------------------------------------------------------------------------------
 Version: 0.18.1
 Date: 22. 2. 2020
-  Bug:
-    - Added missing entity check
-	  (caused game crash on inserter placement without adjacent entity)
+  Bugfixes:
+    - Added missing entity check (caused game crash on inserter placement without adjacent entity)
 ---------------------------------------------------------------------------------------------------
 Version: 0.18.0
 Date: 22. 2. 2020
-  Changes:
-    - Initial release
+  Features:
+    - Added automatic setting of filter on inserter placement
+    - Added player mod setting to control mod behaviour
 ---------------------------------------------------------------------------------------------------
