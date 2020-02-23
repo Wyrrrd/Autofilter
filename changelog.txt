@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.18.4
+Date: 23. 2. 2020
+  Changes:
+    - Removed incompatibility with Upgrade Builder and Planner (see Bugfixes)
+
+  Bugfixes:
+    - Added additional check for entity type, since event filters are not applied to mod-raised events
+---------------------------------------------------------------------------------------------------
 Version: 0.18.3
 Date: 23. 2. 2020
   Changes:

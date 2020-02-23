@@ -1,12 +1,9 @@
 {
 	"name": "Autofilter",
-	"version": "0.18.3",
+	"version": "0.18.4",
 	"title": "Autofilter",
 	"author": "Wyrrrd",
-	"dependencies": [
-		"base >= 0.18.0",
-		"!upgrade-planner-next"
-	],
+	"dependencies": ["base >= 0.18.0"],
 	"description": "Automatically set inserter filters based on adjacent inventory.",
 	"factorio_version": "0.18"
 }
