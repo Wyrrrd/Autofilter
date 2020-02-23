@@ -3,6 +3,7 @@ Version: 0.18.3
 Date: 23. 2. 2020
   Changes:
     - Minor improvements (typos, code style)
+    - Added incompatibility with Upgrade Builder and Planner (until crash is fixed, see https://mods.factorio.com/mod/Autofilter/discussion/5e5177cbf26569000bdd51eb)
 
   Graphics:
     - Changed thumbnail to the better
