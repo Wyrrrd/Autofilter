@@ -1,6 +1,9 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.18.5
 Date: 24. 2. 2020
+  Changes:
+    - Added hidden dependency to Bob's Adjustable Inserters (fixes setting filter from wrong inventory when pickup location is rotated)
+
   Locale:
     - Added translated mod description
 ---------------------------------------------------------------------------------------------------
