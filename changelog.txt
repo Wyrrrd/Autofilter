@@ -4,6 +4,7 @@ Date: 24. 2. 2020
   Changes:
     - Added hidden dependency to Bob's Adjustable Inserters (fixes setting filter from wrong inventory when pickup location is rotated)
 	- Added check for empty filter and whitelist mode to avoid overwriting filter on replacing preexisting inserters/ghosts
+	- Updated retroactive downgrade to be on par with this version
 
   Locale:
     - Added translated mod description
@@ -45,7 +46,7 @@ Date: 22. 2. 2020
     - Added player mod setting to control mod behaviour
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.0
-Date: 22. 2. 2020
+Date: 24. 2. 2020
   Info:
     - Retroactive downgrade
 ---------------------------------------------------------------------------------------------------
