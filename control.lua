@@ -1,6 +1,15 @@
 --control.lua
 
 --functions definitions
+local function is_filter_empty(inserter)
+	for slot = 1,inserter.filter_slot_count do
+		if inserter.get_filter(slot) then
+			return false
+		end
+		return true
+	end
+end
+
 local function get_items_by_content(inserter,inventory)
 	local items = {}
 	for item,_ in pairs(inventory.get_contents()) do
@@ -25,18 +34,20 @@ local function on_built_entity(event)
 	local inserter = event.created_entity
 	if inserter.type == "inserter" then
 		if inserter.filter_slot_count then
-			local pickup = inserter.surface.find_entities_filtered({position = inserter.pickup_position, limit = 1})
-			if #pickup > 0 then
-				local inventory = pickup[1].get_output_inventory()
-				if inventory then
-					local mode = game.players[event.player_index].mod_settings["Autofilter_Mode"].value
-					if mode == "content" and not inventory.is_empty() then
-						for slot,item in pairs(get_items_by_content(inserter,inventory)) do
-							inserter.set_filter(slot,item)
-						end
-					elseif mode == "filter" and inventory.is_filtered() then
-						for slot,item in pairs(get_items_by_filter(inserter,inventory)) do
-							inserter.set_filter(slot,item)
+			if is_filter_empty(inserter) and inserter.inserter_filter_mode == "whitelist" then
+				local pickup = inserter.surface.find_entities_filtered({position = inserter.pickup_position, limit = 1})
+				if #pickup > 0 then
+					local inventory = pickup[1].get_output_inventory()
+					if inventory then
+						local mode = game.players[event.player_index].mod_settings["Autofilter_Mode"].value
+						if mode == "content" and not inventory.is_empty() then
+							for slot,item in pairs(get_items_by_content(inserter,inventory)) do
+								inserter.set_filter(slot,item)
+							end
+						elseif mode == "filter" and inventory.is_filtered() then
+							for slot,item in pairs(get_items_by_filter(inserter,inventory)) do
+								inserter.set_filter(slot,item)
+							end
 						end
 					end
 				end
