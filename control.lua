@@ -6,8 +6,8 @@ local function is_filter_empty(inserter)
 		if inserter.get_filter(slot) then
 			return false
 		end
-		return true
 	end
+	return true
 end
 
 local function get_items_by_content(inserter,inventory)

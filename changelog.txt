@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.18.6
+Date: 27. 2. 2020
+  Changes:
+    - Updated retroactive downgrade to be on par with this version
+
+  Bugfixes:
+    - Fixed empty filter check, so it checks all slots instead of just the first one
+---------------------------------------------------------------------------------------------------
 Version: 0.18.5
 Date: 24. 2. 2020
   Changes:
@@ -46,7 +54,7 @@ Date: 22. 2. 2020
     - Added player mod setting to control mod behaviour
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.0
-Date: 24. 2. 2020
+Date: 27. 2. 2020
   Info:
     - Retroactive downgrade
 ---------------------------------------------------------------------------------------------------
