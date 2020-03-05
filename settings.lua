@@ -1,9 +1,9 @@
 data:extend({
     {
         type = "string-setting",
-        name = "Autofilter_Mode",
-        default_value = "content",
-        allowed_values = {"content","filter","none"},
+        name = "autofilter_mode",
+        default_value = "contents",
+        allowed_values = {"contents","filter","none"},
         setting_type = "runtime-per-user",
         order = "a",
     },

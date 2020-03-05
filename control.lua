@@ -1,4 +1,5 @@
 --control.lua
+require("integrations.informatron.control")
 
 --functions definitions
 local function is_filter_empty(inserter)
@@ -10,7 +11,7 @@ local function is_filter_empty(inserter)
 	return true
 end
 
-local function get_items_by_content(inserter,inventory)
+local function get_items_by_contents(inserter,inventory)
 	local items = {}
 	for item,_ in pairs(inventory.get_contents()) do
 		if #items < inserter.filter_slot_count then
@@ -31,22 +32,24 @@ local function get_items_by_filter(inserter,inventory)
 end
 
 local function on_built_entity(event)
-	local inserter = event.created_entity
-	if inserter.type == "inserter" then
-		if inserter.filter_slot_count then
-			if is_filter_empty(inserter) and inserter.inserter_filter_mode == "whitelist" then
-				local pickup = inserter.surface.find_entities_filtered({position = inserter.pickup_position, limit = 1})
-				if #pickup > 0 then
-					local inventory = pickup[1].get_output_inventory()
-					if inventory then
-						local mode = game.players[event.player_index].mod_settings["Autofilter_Mode"].value
-						if mode == "content" and not inventory.is_empty() then
-							for slot,item in pairs(get_items_by_content(inserter,inventory)) do
-								inserter.set_filter(slot,item)
-							end
-						elseif mode == "filter" and inventory.is_filtered() then
-							for slot,item in pairs(get_items_by_filter(inserter,inventory)) do
-								inserter.set_filter(slot,item)
+	local mode = game.players[event.player_index].mod_settings["autofilter_mode"].value
+	if mode ~= "none" then
+		local inserter = event.created_entity
+		if inserter.type == "inserter" then
+			if inserter.filter_slot_count then
+				if is_filter_empty(inserter) and inserter.inserter_filter_mode == "whitelist" then
+					local pickup = inserter.surface.find_entities_filtered({position = inserter.pickup_position, limit = 1})
+					if #pickup > 0 then
+						local inventory = pickup[1].get_output_inventory()
+						if inventory then
+							if mode == "contents" and not inventory.is_empty() then
+								for slot,item in pairs(get_items_by_contents(inserter,inventory)) do
+									inserter.set_filter(slot,item)
+								end
+							elseif mode == "filter" and inventory.is_filtered() then
+								for slot,item in pairs(get_items_by_filter(inserter,inventory)) do
+									inserter.set_filter(slot,item)
+								end
 							end
 						end
 					end
