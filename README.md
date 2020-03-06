@@ -1,9 +1,14 @@
 # Autofilter
 <img src="https://raw.githubusercontent.com/Wyrrrd/Autofilter/master/thumbnail.png" width="128" height="128">
 
-### Description
-- When you place a filter inserter, it reads either the inventory contents or inventory filters on the pickup side and sets its filter to those items.
-- Fills the inserter's filter only until it is full (of course).
-- Sets the inserter's filter only if there is no filter already set (for example from a replaced preconfigured ghost).
-- The mode can be changed or disabled in player mod settings on the fly as needed.
-- Should work with most modded filter inserters.
+### Features
+When you manually place a filter inserter, it reads either the inventory contents or inventory filters on the pickup side and sets its filter to those items. The mode can be changed or disabled in player mod settings on the fly as needed.
+
+### Compatibility
+This mod should work with all modded filter inserters, but I specifically added compatibility for the following mods:
+
++ [Bob's Adjustable Inserters](https://mods.factorio.com/mod/bobinserters) - rotated pickup positions
++ [Informatron](https://mods.factorio.com/mod/bobinserters) - informational page to explain modes
+
+### Locale
+If you want to contribute by translating this mod, you can view the existing translations [here](https://github.com/Wyrrrd/Autofilter/tree/master/locale). I'd be happy to add your language and credits to the next release.
