@@ -10,25 +10,21 @@ if script.active_mods["informatron"] then
 end
 
 function autofilter_menu(player_index)
-  return {
-    mode=1,
-  }
+  return {}
 end
 
 function autofilter_page_content(page_name, player_index, element)
   if page_name == "autofilter" then
+    element.add{type="button", name="image_autofilter", style="autofilter_thumbnail"}
     element.add{type="label", name="text_autofilter", caption={"autofilter.page_autofilter_text"}}
-    local image_container = element.add{type="button", name="image_autofilter", style="autofilter_thumbnail"}
-    image_container.style.horizontal_align = "center"
-  end
-  if page_name == "mode" then
-    element.add{type="label", name="heading_contents", caption={"autofilter.page_contents_heading"}, style="heading_1_label"}
+    element.add{type="label", name="heading_modes", caption={"autofilter.page_modes_heading"}, style="heading_1_label"}
+    element.add{type="label", name="heading_contents", caption={"autofilter.page_contents_heading"}, style="heading_2_label"}
     element.add{type="button", name="image_contents", style="autofilter_settings_contents"}
     element.add{type="label", name="text_contents", caption={"autofilter.page_contents_text"}}
-    element.add{type="label", name="heading_filter", caption={"autofilter.page_filter_heading"}, style="heading_1_label"}
+    element.add{type="label", name="heading_filter", caption={"autofilter.page_filter_heading"}, style="heading_2_label"}
     element.add{type="button", name="image_filter", style="autofilter_settings_filter"}
     element.add{type="label", name="text_filter", caption={"autofilter.page_filter_text"}}
-    element.add{type="label", name="heading_none", caption={"autofilter.page_none_heading"}, style="heading_1_label"}
+    element.add{type="label", name="heading_none", caption={"autofilter.page_none_heading"}, style="heading_2_label"}
     element.add{type="button", name="image_none", style="autofilter_settings_none"}
     element.add{type="label", name="text_none", caption={"autofilter.page_none_text"}}
   end
