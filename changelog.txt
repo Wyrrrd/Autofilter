@@ -1,11 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.18.9
+Date: 2020-03-29
+  Features:
+    - Added integration with Factorio Wiki Mod (for german and english locales)
+---------------------------------------------------------------------------------------------------
 Version: 0.18.8
-Date: 6. 3. 2020
+Date: 2020-03-06
   Changes:
     - Merged Informatron pages into single one
 ---------------------------------------------------------------------------------------------------
 Version: 0.18.7
-Date: 5. 3. 2020
+Date: 2020-03-05
   Features:
     - Added integration with Informatron (for german and english locales)
   Changes:
@@ -13,14 +18,14 @@ Date: 5. 3. 2020
     - Added earlier check for setting "none" to prevent more code from running
 ---------------------------------------------------------------------------------------------------
 Version: 0.18.6
-Date: 27. 2. 2020
+Date: 2020-02-27
   Changes:
     - Updated retroactive downgrade to be on par with this version
   Bugfixes:
     - Fixed empty filter check, so it checks all slots instead of just the first one
 ---------------------------------------------------------------------------------------------------
 Version: 0.18.5
-Date: 24. 2. 2020
+Date: 2020-02-24
   Changes:
     - Added hidden dependency to Bob's Adjustable Inserters (fixes setting filter from wrong inventory when pickup location is rotated)
     - Added check for empty filter and whitelist mode to avoid overwriting filter on replacing preexisting inserters/ghosts
@@ -29,14 +34,14 @@ Date: 24. 2. 2020
     - Added translated mod description
 ---------------------------------------------------------------------------------------------------
 Version: 0.18.4
-Date: 23. 2. 2020
+Date: 2020-02-23
   Changes:
     - Removed incompatibility with Upgrade Builder and Planner (see Bugfixes)
   Bugfixes:
     - Added additional check for entity type, since event filters are not applied to mod-raised events
 ---------------------------------------------------------------------------------------------------
 Version: 0.18.3
-Date: 23. 2. 2020
+Date: 2020-02-23
   Changes:
     - Minor improvements (typos, code style)
     - Added incompatibility with Upgrade Builder and Planner (until crash is fixed, see https://mods.factorio.com/mod/Autofilter/discussion/5e5177cbf26569000bdd51eb)
@@ -44,24 +49,24 @@ Date: 23. 2. 2020
     - Changed thumbnail to the better
 ---------------------------------------------------------------------------------------------------
 Version: 0.18.2
-Date: 22. 2. 2020
+Date: 2020-02-22
   Changes:
     - Matched changelog file format to what Factorio expects
   Info:
     - Also downgraded to Factorio 0.17, see below
 ---------------------------------------------------------------------------------------------------
 Version: 0.18.1
-Date: 22. 2. 2020
+Date: 2020-02-22
   Bugfixes:
     - Added missing entity check (caused game crash on inserter placement without adjacent entity)
 ---------------------------------------------------------------------------------------------------
 Version: 0.18.0
-Date: 22. 2. 2020
+Date: 2020-02-22
   Features:
     - Added automatic setting of filter on inserter placement
     - Added player mod setting to control mod behaviour
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.0
-Date: 27. 2. 2020
+Date: 2020-02-27
   Info:
     - Retroactive downgrade

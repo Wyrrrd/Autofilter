@@ -15,7 +15,7 @@ end
 
 function autofilter_page_content(page_name, player_index, element)
   if page_name == "autofilter" then
-    element.add{type="button", name="image_autofilter", style="autofilter_thumbnail"}
+    element.add{type="button", name="image_autofilter", style="autofilter_logo"}
     element.add{type="label", name="text_autofilter", caption={"autofilter.page_autofilter_text"}}
     element.add{type="label", name="heading_modes", caption={"autofilter.page_modes_heading"}, style="heading_1_label"}
     element.add{type="label", name="heading_contents", caption={"autofilter.page_contents_heading"}, style="heading_2_label"}
