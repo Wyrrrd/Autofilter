@@ -1,11 +1,12 @@
 {
 	"name": "Autofilter",
-	"version": "0.18.9",
+	"version": "0.18.10",
 	"title": "Autofilter",
 	"author": "Wyrrrd",
 	"dependencies": [
 		"base >= 0.18.0",
 		"(?) bobinserters >= 0.18.0",
+		"? Booktorio >= 1.1.0",
 		"? informatron >= 0.1.5",
 		"? wiki >= 0.18.01"
 	],

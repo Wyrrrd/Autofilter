@@ -16,16 +16,16 @@ end
 function autofilter_page_content(page_name, player_index, element)
   if page_name == "autofilter" then
     element.add{type="button", name="image_autofilter", style="autofilter_logo"}
-    element.add{type="label", name="text_autofilter", caption={"autofilter.page_autofilter_text"}}
-    element.add{type="label", name="heading_modes", caption={"autofilter.page_modes_heading"}, style="heading_1_label"}
-    element.add{type="label", name="heading_contents", caption={"autofilter.page_contents_heading"}, style="heading_2_label"}
+    element.add{type="label", name="text_autofilter", caption={"info.page_autofilter_text"}}
+    element.add{type="label", name="heading_modes", caption={"info.page_modes_heading"}, style="heading_1_label"}
+    element.add{type="label", name="heading_contents", caption={"info.page_contents_heading"}, style="heading_2_label"}
     element.add{type="button", name="image_contents", style="autofilter_settings_contents"}
-    element.add{type="label", name="text_contents", caption={"autofilter.page_contents_text"}}
-    element.add{type="label", name="heading_filter", caption={"autofilter.page_filter_heading"}, style="heading_2_label"}
+    element.add{type="label", name="text_contents", caption={"info.page_contents_text"}}
+    element.add{type="label", name="heading_filter", caption={"info.page_filter_heading"}, style="heading_2_label"}
     element.add{type="button", name="image_filter", style="autofilter_settings_filter"}
-    element.add{type="label", name="text_filter", caption={"autofilter.page_filter_text"}}
-    element.add{type="label", name="heading_none", caption={"autofilter.page_none_heading"}, style="heading_2_label"}
+    element.add{type="label", name="text_filter", caption={"info.page_filter_text"}}
+    element.add{type="label", name="heading_none", caption={"info.page_none_heading"}, style="heading_2_label"}
     element.add{type="button", name="image_none", style="autofilter_settings_none"}
-    element.add{type="label", name="text_none", caption={"autofilter.page_none_text"}}
+    element.add{type="label", name="text_none", caption={"info.page_none_text"}}
   end
 end

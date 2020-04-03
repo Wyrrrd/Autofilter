@@ -1,6 +1,7 @@
 --control.lua
 require("integrations.informatron.control")
 require("integrations.wiki.control")
+require("integrations.Booktorio.control")
 
 --functions definitions
 local function is_filter_empty(inserter)
