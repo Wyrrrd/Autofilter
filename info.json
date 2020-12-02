@@ -1,15 +1,15 @@
 {
 	"name": "Autofilter",
-	"version": "0.18.10",
+	"version": "1.1.0",
 	"title": "Autofilter",
 	"author": "Wyrrrd",
 	"dependencies": [
-		"base >= 0.18.0",
+		"base >= 1.1.0",
 		"(?) bobinserters >= 0.18.0",
 		"? Booktorio >= 1.1.0",
 		"? informatron >= 0.1.5",
 		"? wiki >= 0.18.01"
 	],
 	"description": "Automatically set inserter filters based on adjacent inventory.",
-	"factorio_version": "0.18"
+	"factorio_version": "1.1"
 }
