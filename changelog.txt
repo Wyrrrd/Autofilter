@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.1
+Date: 2021-04-16
+  Features:
+    - Added option to read belt at pickup position
+    - Added option to leave out filter candidates if they cannot enter inventory at drop position
+  Changes:
+    - Changed modus setting format to allow for more customization
+    - Added deduplication to filter candidates (needed for belt transport lines)
+    - Removed integrations for Informatron, Factorio Wiki Mod and Booktorio (feels like bloat)
+---------------------------------------------------------------------------------------------------
 Version: 1.1.0
 Date: 2020-12-02
   Changes:

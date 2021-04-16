@@ -1,6 +1,6 @@
 {
 	"name": "Autofilter",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"title": "Autofilter",
 	"author": "Wyrrrd",
 	"dependencies": [
@@ -10,6 +10,6 @@
 		"? informatron >= 0.1.5",
 		"? wiki >= 0.18.01"
 	],
-	"description": "Automatically set inserter filters based on adjacent inventory.",
+	"description": "Automatically set inserter filters based on adjacent inventory/belt.",
 	"factorio_version": "1.1"
 }
