@@ -5,10 +5,7 @@
 	"author": "Wyrrrd",
 	"dependencies": [
 		"base >= 1.1.0",
-		"(?) bobinserters >= 0.18.0",
-		"? Booktorio >= 1.1.0",
-		"? informatron >= 0.1.5",
-		"? wiki >= 0.18.01"
+		"(?) bobinserters >= 0.18.0"
 	],
 	"description": "Automatically set inserter filters based on adjacent inventory/belt.",
 	"factorio_version": "1.1"
