@@ -10,7 +10,7 @@ There is only one text field to enter configuration into. This can be done on th
 
 + **contents** - Checks for filter candidates in the inventory contents at the inserter's pickup position.
 + **filter** - Checks for filter candidates in the inventory's filter settings at the inserter's pickup position.
-+ **belt** - Checks for filter candidates in the contents of a belt at the inserter's pickup position.
++ **belt** - Checks for filter candidates in the items on a belt at the inserter's pickup position.
 + **check** - Checks for the current filter candidates, if they could be inserted in the inventory at the inserter's drop position and removes them from the candidate list, if unsuccessful.
 + *anything else* - Gets ignored. If you want to disable all functionality, just write anything.
 
