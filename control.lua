@@ -136,8 +136,24 @@ local function on_built_entity(event)
 	if inserter and inserter.valid and (inserter.type == "inserter") then
 		if inserter.filter_slot_count then
 			if is_filter_empty(inserter) and inserter.inserter_filter_mode == "whitelist" then
-				local pickup = inserter.surface.find_entities_filtered({position = inserter.pickup_position, force = inserter.force, surface = inserter.surface, limit = 1})
-				local drop = inserter.surface.find_entities_filtered({position = inserter.drop_position, force = inserter.force, surface = inserter.surface, limit = 1})
+				-- Read pickup and drop position entity
+				local pickup = inserter.surface.find_entities_filtered({
+					position = inserter.pickup_position,
+					force = inserter.force,
+					surface = inserter.surface,
+					collision_mask_layer= "object-layer",
+					to_be_deconstructed = false,
+					limit = 1
+				})
+				local drop = inserter.surface.find_entities_filtered({
+					position = inserter.drop_position,
+					force = inserter.force,
+					surface = inserter.surface,
+					collision_mask= "object-layer",
+					to_be_deconstructed = false,
+					limit = 1
+				})
+				
 				if pickup[1] and pickup[1].valid then
 					-- Prequisites
 					local inventory_pickup = pickup[1].get_output_inventory()
