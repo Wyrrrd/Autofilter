@@ -23,3 +23,6 @@ This mod should work with all modded filter inserters, but I specifically added 
 
 ### Locale
 If you want to contribute by translating this mod, you can view the existing translations [here](https://github.com/Wyrrrd/Autofilter/tree/master/locale). I'd be happy to add your language and credits to the next release.
+
+### Credits
+Thanks to [Friendch](https://mods.factorio.com/user/Friendch) for the french translation.
