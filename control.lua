@@ -53,10 +53,14 @@ local function remove_noninsertable_items(items,entity)
 		defines.inventory.lab_input,
 		defines.inventory.item_main,
 		defines.inventory.rocket_silo_rocket,
+		defines.inventory.rocket_silo_input,
 		defines.inventory.cargo_wagon,
 		defines.inventory.turret_ammo,
 		defines.inventory.artillery_turret_ammo,
 		defines.inventory.artillery_wagon_ammo,
+		defines.inventory.spider_ammo,
+		defines.inventory.hub_main,
+		defines.inventory.cargo_landing_pad_main
 	}
 	local insert_items = {}
 	local no_inventory_flag = true
@@ -86,8 +90,8 @@ end
 
 local function get_items_by_content(inventory)
 	local content_items = {}
-	for item,_ in pairs(inventory.get_contents()) do
-		content_items[#content_items+1] = item
+	for _,item in pairs(inventory.get_contents()) do
+		content_items[#content_items+1] = item.name
 	end
 	return content_items
 end
@@ -115,88 +119,84 @@ end
 
 local function on_built_entity(event)
 	-- Read settings
+	local enabled = game.players[event.player_index].mod_settings["autofilter_enabled"].value
 	local mode = string_to_table(game.players[event.player_index].mod_settings["autofilter_mode"].value)
-	local search_inventories = {
-		defines.inventory.fuel,
-		defines.inventory.chest,
-		defines.inventory.furnace_source,
-		defines.inventory.roboport_robot,
-		defines.inventory.roboport_material,
-		defines.inventory.assembling_machine_input,
-		defines.inventory.lab_input,
-		defines.inventory.item_main,
-		defines.inventory.rocket_silo_rocket,
-		defines.inventory.cargo_wagon,
-		defines.inventory.turret_ammo,
-		defines.inventory.artillery_turret_ammo,
-		defines.inventory.artillery_wagon_ammo,
-	}
 
-	local inserter = event.created_entity
-	if inserter and inserter.valid and (inserter.type == "inserter") then
-		if inserter.filter_slot_count then
-			if is_filter_empty(inserter) and inserter.inserter_filter_mode == "whitelist" then
-				-- Read pickup and drop position entity
-				local pickup = inserter.surface.find_entities_filtered({
-					position = inserter.pickup_position,
-					force = inserter.force,
-					surface = inserter.surface,
-					collision_mask_layer= "object-layer",
-					to_be_deconstructed = false,
-					limit = 1
-				})
-				local drop = inserter.surface.find_entities_filtered({
-					position = inserter.drop_position,
-					force = inserter.force,
-					surface = inserter.surface,
-					collision_mask= "object-layer",
-					to_be_deconstructed = false,
-					limit = 1
-				})
-				
-				if pickup[1] and pickup[1].valid then
-					-- Prequisites
-					local inventory_pickup = pickup[1].get_output_inventory()
+	if enabled then
+		local inserter = event.entity
+		if inserter and inserter.valid and inserter.type == "inserter" then
+			if inserter.filter_slot_count then
+				if not inserter.use_filters and is_filter_empty(inserter) and inserter.inserter_filter_mode == "whitelist" then
+					-- Read pickup and drop position entity
+					local pickup = inserter.surface.find_entities_filtered({
+						position = inserter.pickup_position,
+						force = inserter.force,
+						surface = inserter.surface,
+						collision_mask_layer= "is_object",
+						to_be_deconstructed = false,
+						limit = 1
+					})
+					local drop = inserter.surface.find_entities_filtered({
+						position = inserter.drop_position,
+						force = inserter.force,
+						surface = inserter.surface,
+						collision_mask= "is_object",
+						to_be_deconstructed = false,
+						limit = 1
+					})
 
-					if (pickup[1].type == "transport-belt" or pickup[1].type == "underground-belt" or pickup[1].type == "splitter") then
-						local maxlines = pickup[1].get_max_transport_line_index()
-					end
-					local items = {}
-					local check = false
+					if pickup[1] and pickup[1].valid then
+						-- Prequisites
+						local inventory_pickup = pickup[1].get_output_inventory()
 
-					-- Read each mode element
-					for _,step in pairs(mode) do
-						if step == "contents" then
-							-- Read inventory contents at pickup, write to filter
-							if inventory_pickup and not inventory_pickup.is_empty() then
-								items = concatenate_tables(items,get_items_by_content(inventory_pickup))
-							end
-						elseif step == "filter" then
-							-- Read inventory filter at pickup, write to filter
-							if inventory_pickup and inventory_pickup.is_filtered() then
-								items = concatenate_tables(items,get_items_by_filter(inventory_pickup))
-							end
-						elseif step == "belt" then
-							-- Read belt transport lines at pickup, write to filter
-							if (pickup[1].type == "transport-belt" or pickup[1].type == "underground-belt" or pickup[1].type == "splitter") and pickup[1].get_max_transport_line_index() then
-								items = concatenate_tables(items,get_items_by_transport_line(pickup[1]))
-							end
-						elseif step == "check" then
-							-- Drop inventory insertion check
-							if drop[1] and drop[1].valid then
-								items = remove_noninsertable_items(items,drop[1])
+						if (pickup[1].type == "transport-belt" or pickup[1].type == "underground-belt" or pickup[1].type == "splitter") then
+							local maxlines = pickup[1].get_max_transport_line_index()
+						end
+						local items = {}
+						local check = false
+
+						-- Read each mode element
+						for _,step in pairs(mode) do
+							if step == "contents" then
+								-- Read inventory contents at pickup, write to filter
+								if inventory_pickup and not inventory_pickup.is_empty() then
+									items = concatenate_tables(items,get_items_by_content(inventory_pickup))
+								end
+							elseif step == "filter" then
+								-- Read inventory filter at pickup, write to filter
+								if inventory_pickup and inventory_pickup.is_filtered() then
+									items = concatenate_tables(items,get_items_by_filter(inventory_pickup))
+								end
+							elseif step == "belt" then
+								-- Read belt transport lines at pickup, write to filter
+								if (pickup[1].type == "transport-belt" or pickup[1].type == "underground-belt" or pickup[1].type == "splitter") and pickup[1].get_max_transport_line_index() then
+									items = concatenate_tables(items,get_items_by_transport_line(pickup[1]))
+								end
+							elseif step == "check" then
+								-- Drop inventory insertion check
+								if drop[1] and drop[1].valid then
+									items = remove_noninsertable_items(items,drop[1])
+								end
 							end
 						end
-					end
 
-					-- Filter candidate cleanup
-					if #items > 0 then
-						-- Deduplication
-						items = deduplicate_items(items)
+						-- Filter candidate cleanup
+						if #items > 0 then
+							-- Debug message
+							if __DebugAdapter then
+								__DebugAdapter.print("[Autofilter] Inserter at (" .. inserter.position.x .. "," .. inserter.position.y .. ") had its filter set to: " .. table.concat(items,", "))
+							end
 
-						-- Writing filter until full
-						for slot = 1, inserter.filter_slot_count do
-							inserter.set_filter(slot,items[slot])
+							-- Deduplication
+							items = deduplicate_items(items)
+
+							-- Enable filters
+							inserter.use_filters = true
+
+							-- Writing filters until full
+							for slot = 1, inserter.filter_slot_count do
+								inserter.set_filter(slot,items[slot])
+							end
 						end
 					end
 				end

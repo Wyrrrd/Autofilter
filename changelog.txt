@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.0
+Date: 2024-10-25
+  Features:
+    - Added option to quickly enable/disable all functions (will be replaced with a shortcut tile in the future)
+    - If enabled, now sets filters for all inserters (since filter inserters don't exist anymore)
+  Changes:
+    - Version bump for base game 2.0
+---------------------------------------------------------------------------------------------------
 Version: 1.1.3
 Date: 2021-09-06
   Locale:
