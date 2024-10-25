@@ -17,7 +17,7 @@ There is only one text field to enter configuration into (apart from an enabling
 After those are processed, a deduplication removes all but the first appearance of each item from the filter candidate list, and then the candidates are written to the inserter's filter until it is full.
 
 ### Compatibility
-This mod should work with all modded filter inserters, but I specifically added compatibility for the following mods:
+This mod should work with all modded inserters, but I specifically added compatibility for the following mods:
 
 + [Bob's Adjustable Inserters](https://mods.factorio.com/mod/bobinserters) - rotated pickup positions
 
