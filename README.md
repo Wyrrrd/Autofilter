@@ -22,7 +22,7 @@ This mod should work with all modded inserters, but I specifically added compati
 + [Bob's Adjustable Inserters](https://mods.factorio.com/mod/bobinserters) - rotated pickup positions
 
 ### Locale
-If you want to contribute by translating this mod, you can view the existing translations [here](https://github.com/Wyrrrd/Autofilter/tree/master/locale). I'd be happy to add your language and credits to the next release.
+If you want to contribute by translating this mod, you can view the existing translations on [Crowdin](https://crowdin.com/project/factorio-mods-localization). I'd be happy to add your language and credits to the next release.
 
 ### Credits
 Thanks to [Friendch](https://mods.factorio.com/user/Friendch) for the french translation.
