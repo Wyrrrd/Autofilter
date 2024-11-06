@@ -145,10 +145,6 @@ local function get_items_by_entity_filter(entity)
 	local filter_items = {}
 	for slot = 1,entity.filter_slot_count do
 		if entity.get_filter(slot) then
-			-- Debug message
-			if __DebugAdapter then
-				__DebugAdapter.print("[Autofilter] " .. get_item_name(entity.get_filter(slot)))
-			end
 			filter_items[#filter_items+1] = get_item_name(entity.get_filter(slot))
 		end
 	end
@@ -212,16 +208,10 @@ local function on_built_entity(event)
 								-- Read inventory filter at pickup, write to filter
 								if inventory_pickup and inventory_pickup.is_filtered() then
 									items = concatenate_tables(items,get_items_by_inventory_filter(inventory_pickup))
-									if __DebugAdapter then
-										__DebugAdapter.print("[Autofilter] Inventory: " .. table.concat(items,", "))
-									end
 								end
 								-- Read entity filter at pickup, write to filter
 								if pickup[1].filter_slot_count > 0 then
 									items = concatenate_tables(items,get_items_by_entity_filter(pickup[1]))
-									if __DebugAdapter then
-										__DebugAdapter.print("[Autofilter] Entity: " .. table.concat(items,", "))
-									end
 								end
 							elseif step == "belt" then
 								-- Read belt transport lines at pickup, write to filter
