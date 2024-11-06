@@ -26,3 +26,4 @@ If you want to contribute by translating this mod, you can view the existing tra
 
 ### Credits
 Thanks to [Friendch](https://mods.factorio.com/user/Friendch) for the french translation.
+Thanks to [Met_en_Bouldry](https://crowdin.com/profile/Met_en_Bouldry) for the ukrainian translation.
