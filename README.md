@@ -6,7 +6,7 @@ When you manually place an inserter, it reads the inventory contents, inventory 
 
 ### Settings
 
-There is only one text field to enter configuration into (apart from an enabling checkbox). This can be done on the fly, while ingame. You can add each of the following keywords into the text field, in any order, separated by spaces. They will be processed left to right.
+There is only one text field to enter configuration into. This can be done on the fly, while ingame. You can add each of the following keywords into the text field, in any order, separated by spaces. They will be processed left to right.
 
 + **contents** - Checks for filter candidates in the inventory contents at the inserter's pickup position.
 + **filter** - Checks for filter candidates in the inventory's filter settings at the inserter's pickup position.
