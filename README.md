@@ -25,5 +25,5 @@ This mod should work with all modded inserters, but I specifically added compati
 If you want to contribute by translating this mod, you can view the existing translations on [Crowdin](https://crowdin.com/project/factorio-mods-localization). I'd be happy to add your language and credits to the next release.
 
 ### Credits
-Thanks to [Friendch](https://mods.factorio.com/user/Friendch) for the french translation.
+Thanks to [Friendch](https://mods.factorio.com/user/Friendch) for the french translation.  
 Thanks to [Met_en_Bouldry](https://crowdin.com/profile/Met_en_Bouldry) for the ukrainian translation.
