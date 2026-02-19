@@ -69,11 +69,11 @@ end
 local function remove_noninsertable_items(items,entity)
 	local search_inventories = {
 		chest              = {defines.inventory.chest},
-		furnace            = {defines.inventory.furnace_source},
+		furnace            = {defines.inventory.crafter_input},
 		roboport           = {defines.inventory.roboport_robot, defines.inventory.roboport_material},
-		assembling_machine = {defines.inventory.assembling_machine_input},
+		assembling_machine = {defines.inventory.crafter_input},
 		lab                = {defines.inventory.lab_input},
-		rocket_silo        = {defines.inventory.rocket_silo_rocket,	defines.inventory.rocket_silo_input},
+		rocket_silo        = {defines.inventory.rocket_silo_rocket,	defines.inventory.crafter_input},
 		cargo_wagon        = {defines.inventory.cargo_wagon},
 		turret             = {defines.inventory.turret_ammo},
 		artillery_turret   = {defines.inventory.artillery_turret_ammo},
@@ -144,8 +144,14 @@ end
 local function get_items_by_entity_filter(entity)
 	local filter_items = {}
 	for slot = 1,entity.filter_slot_count do
-		if entity.get_filter(slot) then
-			filter_items[#filter_items+1] = get_item_name(entity.get_filter(slot))
+		if entity.type == "infinity-container" then
+			if entity.get_infinity_container_filter(slot) then
+				filter_items[#filter_items+1] = get_item_name(entity.get_infinity_container_filter(slot))
+			end
+		else
+			if entity.get_filter(slot) then
+				filter_items[#filter_items+1] = get_item_name(entity.get_filter(slot))
+			end
 		end
 	end
 	return filter_items
